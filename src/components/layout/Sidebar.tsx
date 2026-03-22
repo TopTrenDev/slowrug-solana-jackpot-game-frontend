@@ -1,7 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Gamepad2, Building2, Infinity, MessageCircle, Wallet, Volume2, VolumeX, ChevronLeft, ChevronRight, Home, Zap } from "lucide-react";
+import { Gamepad2, Building2, Infinity, MessageCircle, Wallet, Volume2, VolumeX, ChevronLeft, ChevronRight, Home } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import logoImg from "@/assets/slowrug-logo.png";
 
 const navItems = [
   { label: "Home", path: "/", icon: Home },
@@ -24,10 +25,7 @@ export default function Sidebar() {
     >
       {/* Logo */}
       <div className="flex h-20 items-center gap-3 px-4 border-b border-border">
-        <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
-          <div className="absolute inset-0 bg-primary/15 animate-pulse" />
-          <Zap className="relative h-6 w-6 text-primary" />
-        </div>
+        <img src={logoImg} alt="SlowRug" className="h-10 w-10 shrink-0 object-contain drop-shadow-[0_0_8px_hsl(145,100%,50%,0.4)]" />
         {!collapsed && (
           <div>
             <span className="font-display text-2xl text-foreground">
