@@ -5,9 +5,9 @@ import towerImg from "@/assets/tower-game.jpg";
 import rugImg from "@/assets/infinite-rug-game.jpg";
 
 const stats = [
-  { icon: DollarSign, value: "$12,847", label: "Amount Wagered", glow: "neon-glow-green", color: "text-[hsl(var(--neon-green))]" },
-  { icon: Hash, value: "1,293", label: "Bets Placed", glow: "neon-glow-purple", color: "text-[hsl(var(--neon-purple))]" },
-  { icon: Trophy, value: "$8,412", label: "Total Wins", glow: "neon-glow-green", color: "text-[hsl(var(--neon-green))]" },
+  { icon: DollarSign, value: "$12,847", label: "Amount Wagered", glow: "neon-glow-green", color: "text-primary" },
+  { icon: Hash, value: "1,293", label: "Bets Placed", glow: "neon-glow-purple", color: "text-secondary" },
+  { icon: Trophy, value: "$8,412", label: "Total Wins", glow: "neon-glow-green", color: "text-primary" },
 ];
 
 const games = [
@@ -18,7 +18,7 @@ const games = [
     icon: Gamepad2,
     img: towerImg,
     borderClass: "neon-border-green",
-    tagColor: "bg-[hsl(var(--neon-green)/0.15)] text-[hsl(var(--neon-green))]",
+    tagColor: "bg-primary/15 text-primary",
   },
   {
     title: "INFINITE RUG",
@@ -27,7 +27,7 @@ const games = [
     icon: Infinity,
     img: rugImg,
     borderClass: "neon-border-purple",
-    tagColor: "bg-[hsl(var(--neon-purple)/0.15)] text-[hsl(var(--neon-purple))]",
+    tagColor: "bg-secondary/15 text-secondary",
   },
 ];
 
@@ -46,35 +46,37 @@ export default function Index() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroBanner} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(260,20%,5%/0.3)] via-[hsl(260,20%,5%/0.6)] to-[hsl(260,20%,5%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
         </div>
-        <div className="relative z-10 px-8 pb-16 pt-20 lg:px-12">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="h-2 w-2 rounded-full bg-[hsl(var(--neon-green))] animate-pulse" />
-            <span className="font-mono text-xs tracking-widest text-[hsl(var(--neon-green))]">PROVABLY FAIR • ON-CHAIN</span>
+        <div className="relative z-10 px-8 pb-20 pt-24 lg:px-12">
+          <div className="flex items-center gap-2 mb-5">
+            <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+            <span className="font-mono text-xs tracking-widest text-primary uppercase">Provably Fair • On-Chain</span>
           </div>
-          <h1 className="font-display text-5xl font-black tracking-wider text-foreground lg:text-7xl" style={{ lineHeight: '1.05' }}>
+          <h1 className="font-display text-7xl text-foreground lg:text-[120px] leading-[0.9]">
             PLAY.<br />
-            <span className="text-[hsl(var(--neon-green))] neon-text-green">WIN.</span><br />
-            <span className="text-[hsl(var(--neon-purple))] neon-text-purple">REPEAT.</span>
+            <span className="text-primary neon-text-green">WIN.</span><br />
+            <span className="text-secondary neon-text-purple">REPEAT.</span>
           </h1>
-          <p className="mt-6 max-w-lg text-lg font-medium text-foreground/60">
+          <p className="mt-6 max-w-md text-base text-foreground/50 leading-relaxed">
             Solana-powered jackpot games with instant payouts, verifiable randomness, and zero middlemen.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/tower"
-              className="group inline-flex items-center gap-2 rounded-xl bg-[hsl(var(--neon-green))] px-6 py-3 font-display text-sm font-bold tracking-wider text-black transition-all hover:brightness-110 active:scale-[0.97] neon-glow-green"
+              className="group inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold tracking-wider text-primary-foreground transition-all hover:brightness-110 active:scale-[0.97] uppercase"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }}
             >
               <Zap className="h-4 w-4" />
-              PLAY NOW
+              Play Now
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/operators"
-              className="inline-flex items-center gap-2 rounded-xl border border-[hsl(var(--neon-purple)/0.4)] bg-[hsl(var(--neon-purple)/0.1)] px-6 py-3 font-display text-sm font-bold tracking-wider text-[hsl(var(--neon-purple))] transition-all hover:bg-[hsl(var(--neon-purple)/0.2)] active:scale-[0.97]"
+              className="inline-flex items-center gap-2 border border-secondary/40 bg-secondary/10 px-7 py-3 text-sm font-semibold tracking-wider text-secondary transition-all hover:bg-secondary/20 active:scale-[0.97] uppercase"
+              style={{ clipPath: 'polygon(5% 0, 100% 0, 100% 100%, 0% 100%)' }}
             >
-              BECOME OPERATOR
+              Become Operator
             </Link>
           </div>
         </div>
@@ -83,21 +85,21 @@ export default function Index() {
       <div className="px-8 lg:px-12">
         {/* Stats */}
         <section className="relative -mt-4 mb-12">
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`rounded-xl border border-border bg-card/80 backdrop-blur-sm p-5 transition-all duration-300 hover:scale-[1.02] ${s.glow} animate-slide-up`}
-                style={{ animationDelay: `${i * 100}ms` }}
+                className={`border border-border bg-card/80 backdrop-blur-sm p-5 transition-all duration-300 hover:translate-y-[-2px] ${s.glow} animate-slide-up`}
+                style={{ animationDelay: `${i * 80}ms` }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-muted ${s.color}`}>
-                    <s.icon className="h-5 w-5" />
+                  <div className={`flex h-9 w-9 items-center justify-center bg-muted ${s.color}`}>
+                    <s.icon className="h-4 w-4" />
                   </div>
-                  <TrendingUp className="h-4 w-4 text-[hsl(var(--neon-green))]" />
+                  <TrendingUp className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <p className="font-mono text-3xl font-bold tracking-tight text-foreground">{s.value}</p>
-                <p className="mt-1 text-sm font-medium text-muted-foreground">{s.label}</p>
+                <p className="font-mono text-2xl font-bold tracking-tight text-foreground">{s.value}</p>
+                <p className="mt-1 text-xs text-muted-foreground uppercase tracking-wider">{s.label}</p>
               </div>
             ))}
           </div>
@@ -106,32 +108,32 @@ export default function Index() {
         {/* Games */}
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <Gamepad2 className="h-5 w-5 text-[hsl(var(--neon-green))]" />
-            <h2 className="font-display text-sm font-bold tracking-[0.2em] text-muted-foreground">GAMES</h2>
+            <Gamepad2 className="h-4 w-4 text-primary" />
+            <h2 className="font-display text-2xl text-muted-foreground">GAMES</h2>
             <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2">
             {games.map((g) => (
               <Link
                 key={g.path}
                 to={g.path}
-                className={`group relative overflow-hidden rounded-2xl border bg-card transition-all duration-500 hover:scale-[1.02] ${g.borderClass}`}
+                className={`group relative overflow-hidden border bg-card transition-all duration-500 hover:translate-y-[-2px] ${g.borderClass}`}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
                   <img src={g.img} alt={g.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-                  <span className={`absolute top-4 left-4 rounded-full px-3 py-1 font-mono text-[10px] font-bold tracking-widest ${g.tagColor}`}>
+                  <span className={`absolute top-3 left-3 px-3 py-1 font-mono text-[10px] font-bold tracking-widest ${g.tagColor}`}>
                     LIVE
                   </span>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-2">
-                    <g.icon className="h-5 w-5 text-foreground" />
-                    <h3 className="font-display text-lg font-bold tracking-wider text-foreground">{g.title}</h3>
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <g.icon className="h-4 w-4 text-foreground" />
+                    <h3 className="font-display text-2xl text-foreground">{g.title}</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-4">{g.desc}</p>
-                  <span className="inline-flex items-center gap-2 font-display text-xs font-bold tracking-wider text-[hsl(var(--neon-green))] transition-all group-hover:gap-3">
-                    PLAY NOW <ArrowRight className="h-3 w-3" />
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{g.desc}</p>
+                  <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-primary transition-all group-hover:gap-3 uppercase">
+                    Play Now <ArrowRight className="h-3 w-3" />
                   </span>
                 </div>
               </Link>
@@ -142,16 +144,16 @@ export default function Index() {
         {/* Recent Players */}
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-2 w-2 rounded-full bg-[hsl(var(--neon-green))] animate-pulse" />
-            <h2 className="font-display text-sm font-bold tracking-[0.2em] text-muted-foreground">RECENT PLAYS</h2>
+            <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+            <h2 className="font-display text-2xl text-muted-foreground">RECENT PLAYS</h2>
             <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
           </div>
-          <div className="overflow-hidden rounded-xl border border-border bg-card/60 backdrop-blur-sm">
+          <div className="overflow-hidden border border-border bg-card/60 backdrop-blur-sm">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
                   {["Game", "Wallet", "Bet", "Payout", "TX"].map((h) => (
-                    <th key={h} className="px-5 py-3 text-left font-display text-[10px] font-bold tracking-[0.15em] text-muted-foreground">{h}</th>
+                    <th key={h} className="px-5 py-3 text-left font-mono text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -159,17 +161,17 @@ export default function Index() {
                 {recentPlayers.map((p, i) => (
                   <tr key={i} className="border-b border-border/30 transition-colors hover:bg-muted/30">
                     <td className="px-5 py-3">
-                      <span className={`rounded-md px-2 py-0.5 font-mono text-[10px] font-bold ${p.game === "Tower" ? "bg-[hsl(var(--neon-green)/0.1)] text-[hsl(var(--neon-green))]" : "bg-[hsl(var(--neon-purple)/0.1)] text-[hsl(var(--neon-purple))]"}`}>
+                      <span className={`px-2 py-0.5 font-mono text-[10px] font-bold ${p.game === "Tower" ? "bg-primary/10 text-primary" : "bg-secondary/10 text-secondary"}`}>
                         {p.game}
                       </span>
                     </td>
                     <td className="px-5 py-3 font-mono text-xs text-muted-foreground">{p.wallet}</td>
                     <td className="px-5 py-3 font-mono text-xs text-foreground">{p.bet}</td>
-                    <td className={`px-5 py-3 font-mono text-xs font-semibold ${p.win ? "text-[hsl(var(--neon-green))]" : "text-destructive"}`}>
+                    <td className={`px-5 py-3 font-mono text-xs font-semibold ${p.win ? "text-primary" : "text-destructive"}`}>
                       {p.payout}
                     </td>
                     <td className="px-5 py-3">
-                      <a href="#" className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-[hsl(var(--neon-green))]">
+                      <a href="#" className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-primary">
                         <ExternalLink className="h-3 w-3" />
                       </a>
                     </td>
