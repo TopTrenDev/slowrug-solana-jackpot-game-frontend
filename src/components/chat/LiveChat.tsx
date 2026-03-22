@@ -11,8 +11,8 @@ interface ChatMessage {
 }
 
 const COLORS = [
-  "text-[hsl(145,100%,50%)]",
-  "text-[hsl(270,80%,60%)]",
+  "text-primary",
+  "text-secondary",
   "text-[hsl(320,90%,60%)]",
   "text-[hsl(185,100%,50%)]",
   "text-[hsl(45,100%,60%)]",
@@ -34,21 +34,12 @@ export default function LiveChat() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, open]);
 
   const sendMessage = () => {
     if (!input.trim()) return;
-    const msg: ChatMessage = {
-      id: Date.now().toString(),
-      user: "You",
-      text: input,
-      time: "now",
-      color: COLORS[2],
-    };
-    setMessages((prev) => [...prev, msg]);
+    setMessages((prev) => [...prev, { id: Date.now().toString(), user: "You", text: input, time: "now", color: COLORS[2] }]);
     setInput("");
   };
 
@@ -56,10 +47,11 @@ export default function LiveChat() {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[hsl(var(--neon-purple))] shadow-lg transition-all hover:scale-105 active:scale-95 neon-glow-purple"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center bg-secondary shadow-lg transition-all hover:scale-105 active:scale-95 neon-glow-purple"
+        style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%)' }}
       >
-        <MessageCircle className="h-6 w-6 text-white" />
-        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[hsl(var(--neon-green))] font-mono text-[10px] font-bold text-black">
+        <MessageCircle className="h-6 w-6 text-secondary-foreground" />
+        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center bg-primary font-mono text-[10px] font-bold text-primary-foreground">
           {messages.length}
         </span>
       </button>
@@ -67,30 +59,26 @@ export default function LiveChat() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex h-[480px] w-[340px] flex-col overflow-hidden rounded-2xl border border-[hsl(var(--neon-purple)/0.3)] bg-[hsl(260,22%,6%/0.95)] backdrop-blur-xl neon-glow-purple animate-slide-up">
-      {/* Header */}
+    <div className="fixed bottom-6 right-6 z-50 flex h-[480px] w-[340px] flex-col overflow-hidden border border-secondary/30 bg-sidebar/95 backdrop-blur-xl neon-glow-purple animate-slide-up">
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-[hsl(var(--neon-green))] animate-pulse" />
-          <span className="font-display text-sm font-semibold tracking-wider text-foreground">LIVE CHAT</span>
-          <span className="rounded-full bg-muted px-2 py-0.5 font-mono text-[10px] text-muted-foreground">
-            {messages.length}
-          </span>
+          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+          <span className="font-display text-lg text-foreground">LIVE CHAT</span>
+          <span className="bg-muted px-2 py-0.5 font-mono text-[10px] text-muted-foreground">{messages.length}</span>
         </div>
         <div className="flex gap-1">
-          <button onClick={() => setOpen(false)} className="rounded-md p-1 text-muted-foreground transition-colors hover:text-foreground">
+          <button onClick={() => setOpen(false)} className="p-1 text-muted-foreground transition-colors hover:text-foreground">
             <Minimize2 className="h-4 w-4" />
           </button>
-          <button onClick={() => setOpen(false)} className="rounded-md p-1 text-muted-foreground transition-colors hover:text-destructive">
+          <button onClick={() => setOpen(false)} className="p-1 text-muted-foreground transition-colors hover:text-destructive">
             <X className="h-4 w-4" />
           </button>
         </div>
       </div>
 
-      {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
         {messages.map((msg) => (
-          <div key={msg.id} className="group">
+          <div key={msg.id}>
             <div className="flex items-baseline gap-2">
               <span className={cn("text-sm font-semibold", msg.color)}>{msg.user}</span>
               <span className="font-mono text-[10px] text-muted-foreground">{msg.time}</span>
@@ -100,7 +88,6 @@ export default function LiveChat() {
         ))}
       </div>
 
-      {/* Input */}
       <div className="border-t border-border p-3">
         <div className="flex gap-2">
           <input
@@ -108,11 +95,11 @@ export default function LiveChat() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
             placeholder="Type a message..."
-            className="flex-1 rounded-lg border border-border bg-muted px-3 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-[hsl(var(--neon-purple)/0.5)]"
+            className="flex-1 border border-border bg-muted px-3 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-secondary/50"
           />
           <button
             onClick={sendMessage}
-            className="flex h-9 w-9 items-center justify-center rounded-lg bg-[hsl(var(--neon-purple))] text-white transition-all hover:brightness-110 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center bg-secondary text-secondary-foreground transition-all hover:brightness-110 active:scale-95"
           >
             <Send className="h-4 w-4" />
           </button>
