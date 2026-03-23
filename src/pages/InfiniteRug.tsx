@@ -146,7 +146,7 @@ export default function InfiniteRug() {
                   <TrendingUp className="h-4 w-4 text-secondary" />
                   <p className="font-mono text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">Potential Win</p>
                 </div>
-                <p className="font-mono text-3xl font-black text-secondary neon-text-purple">
+                <p className="font-mono text-3xl font-black text-secondary neon-text-cyan">
                   {(parseFloat(betAmount) * multiplier).toFixed(2)} SOL
                 </p>
               </div>
