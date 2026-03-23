@@ -26,7 +26,7 @@ const games = [
     path: "/infinite-rug",
     icon: Infinity,
     img: rugImg,
-    borderClass: "neon-border-purple",
+    borderClass: "neon-border-cyan",
     tagColor: "bg-secondary/15 text-secondary",
   },
 ];
