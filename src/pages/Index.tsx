@@ -6,8 +6,8 @@ import rugImg from "@/assets/infinite-rug-game.jpg";
 
 const stats = [
   { icon: DollarSign, value: "$12,847", label: "Amount Wagered", glow: "neon-glow-green", color: "text-primary" },
-  { icon: Hash, value: "1,293", label: "Bets Placed", glow: "neon-glow-purple", color: "text-secondary" },
-  { icon: Trophy, value: "$8,412", label: "Total Wins", glow: "neon-glow-green", color: "text-primary" },
+  { icon: Hash, value: "1,293", label: "Bets Placed", glow: "neon-glow-cyan", color: "text-secondary" },
+  { icon: Trophy, value: "$8,412", label: "Total Wins", glow: "neon-glow-gold", color: "text-accent" },
 ];
 
 const games = [
