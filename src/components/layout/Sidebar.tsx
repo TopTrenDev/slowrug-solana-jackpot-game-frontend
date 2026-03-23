@@ -25,13 +25,12 @@ export default function Sidebar() {
     >
       {/* Logo */}
       <div className="flex h-20 items-center gap-3 px-4 border-b border-border">
-        <img src={logoImg} alt="SlowRug" className="h-10 w-10 shrink-0 object-contain drop-shadow-[0_0_8px_hsl(145,100%,50%,0.4)]" />
-        {!collapsed && (
+        {collapsed ? (
+          <span className="font-display text-xl text-foreground shrink-0">S<span className="text-primary neon-text-green">R</span></span>
+        ) : (
           <div>
-            <span className="font-display text-2xl text-foreground">
-              SLOW<span className="text-primary neon-text-green">RUG</span>
-            </span>
-            <p className="font-mono text-[10px] tracking-wider text-muted-foreground">SOLANA JACKPOT</p>
+            <img src={logoImg} alt="SlowRug" className="h-8 object-contain drop-shadow-[0_0_8px_hsl(145,100%,50%,0.4)]" />
+            <p className="font-mono text-[10px] tracking-wider text-muted-foreground mt-1">SOLANA JACKPOT</p>
           </div>
         )}
       </div>
