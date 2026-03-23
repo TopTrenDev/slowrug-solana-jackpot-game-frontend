@@ -13,9 +13,9 @@ interface ChatMessage {
 const COLORS = [
   "text-primary",
   "text-secondary",
-  "text-[hsl(320,90%,60%)]",
-  "text-[hsl(185,100%,50%)]",
-  "text-[hsl(45,100%,60%)]",
+  "text-accent",
+  "text-neon-cyan",
+  "text-chrome",
 ];
 
 const MOCK_MESSAGES: ChatMessage[] = [
