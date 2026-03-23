@@ -45,7 +45,7 @@ export default function InfiniteRug() {
   const getGlowClass = () => {
     if (rugged) return "";
     if (cashedOut) return "neon-glow-green";
-    if (multiplier > 2) return "neon-glow-purple";
+    if (multiplier > 2) return "neon-glow-cyan";
     return "";
   };
 
