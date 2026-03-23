@@ -25,7 +25,7 @@ export default function Sidebar() {
     >
       {/* Logo */}
       <div className="flex h-20 items-center gap-3 px-4 border-b border-border">
-        <img src={logoImg} alt="SlowRug" className="h-10 w-10 shrink-0 object-contain drop-shadow-[0_0_8px_hsl(145,100%,50%,0.4)]" />
+        <img src={logoImg} alt="SlowRug" className="h-10 w-10 shrink-0 object-contain drop-shadow-[0_0_8px_hsl(72,100%,50%,0.4)]" />
         {!collapsed && (
           <div>
             <span className="font-display text-2xl text-foreground">
