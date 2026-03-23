@@ -2,8 +2,8 @@ import { Users, TrendingUp, Shield, ArrowRight, Coins, Lock } from "lucide-react
 
 const stats = [
   { label: "Active Operators", value: "24", icon: Users, color: "text-primary", glow: "neon-glow-green" },
-  { label: "Total Value Locked", value: "$142K", icon: Lock, color: "text-secondary", glow: "neon-glow-purple" },
-  { label: "Games Secured", value: "3,891", icon: Shield, color: "text-primary", glow: "neon-glow-green" },
+  { label: "Total Value Locked", value: "$142K", icon: Lock, color: "text-accent", glow: "neon-glow-gold" },
+  { label: "Games Secured", value: "3,891", icon: Shield, color: "text-secondary", glow: "neon-glow-cyan" },
 ];
 
 const operators = [
