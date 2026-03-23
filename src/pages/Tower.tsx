@@ -40,7 +40,7 @@ export default function Tower() {
           <div className="border border-border bg-card/60 backdrop-blur-sm p-6 scanlines relative overflow-hidden">
             {crashed && (
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/90 backdrop-blur-sm animate-fade-blur">
-                <span className="font-display text-6xl text-destructive neon-text-purple mb-2">COLLAPSED!</span>
+                <span className="font-display text-6xl text-destructive neon-text-red mb-2">COLLAPSED!</span>
                 <p className="font-mono text-sm text-muted-foreground mb-4">Tower fell at level {currentLevel}</p>
                 <button
                   onClick={handleReset}
