@@ -39,7 +39,7 @@ export default function Operators() {
         ))}
       </div>
 
-      <div className="mb-8 border border-secondary/30 bg-gradient-to-r from-secondary/8 to-transparent p-8 neon-glow-purple">
+      <div className="mb-8 border border-accent/30 bg-gradient-to-r from-accent/8 to-transparent p-8 neon-glow-gold">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
             <h2 className="font-display text-3xl text-foreground">BECOME AN OPERATOR</h2>
