@@ -79,7 +79,7 @@ export default function InfiniteRug() {
               {rugged ? "💀 Rugged" : cashedOut ? "💰 Cashed Out" : playing ? "🔴 Live" : "Multiplier"}
             </p>
             <p className={`relative z-10 font-mono text-8xl font-black tracking-tight transition-all duration-300 ${getMultColor()} ${
-              !rugged && !cashedOut && playing && multiplier > 2 ? "neon-text-purple" : ""
+              !rugged && !cashedOut && playing && multiplier > 2 ? "neon-text-cyan" : ""
             } ${cashedOut ? "neon-text-green" : ""}`}>
               {multiplier.toFixed(2)}x
             </p>
