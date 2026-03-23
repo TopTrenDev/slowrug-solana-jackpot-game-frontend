@@ -25,7 +25,7 @@ export default function Sidebar() {
     >
       {/* Logo */}
       <div className="flex h-20 items-center gap-3 px-4 border-b border-border">
-        <img src={logoImg} alt="SlowRug" className="h-10 w-10 shrink-0 object-contain drop-shadow-[0_0_8px_hsl(145,100%,50%,0.4)]" />
+        <img src={logoImg} alt="SlowRug" className="h-10 w-10 shrink-0 object-contain drop-shadow-[0_0_8px_hsl(72,100%,50%,0.4)]" />
         {!collapsed && (
           <div>
             <span className="font-display text-2xl text-foreground">
@@ -74,7 +74,7 @@ export default function Sidebar() {
                 {isActive && (
                   <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary" />
                 )}
-                <item.icon className={cn("h-[18px] w-[18px] shrink-0 transition-colors", isActive && "drop-shadow-[0_0_6px_hsl(145,100%,50%,0.5)]")} />
+                <item.icon className={cn("h-[18px] w-[18px] shrink-0 transition-colors", isActive && "drop-shadow-[0_0_6px_hsl(72,100%,50%,0.5)]")} />
                 {!collapsed && item.label}
               </NavLink>
             );

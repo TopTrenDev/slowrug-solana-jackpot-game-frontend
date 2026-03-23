@@ -26,7 +26,7 @@ export default function ParticleField() {
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
         size: Math.random() * 2 + 0.5,
-        color: Math.random() > 0.5 ? "145,100%,50%" : "270,80%,60%",
+        color: ["72,100%,50%", "187,100%,50%", "43,78%,46%"][Math.floor(Math.random() * 3)],
         alpha: Math.random() * 0.5 + 0.1,
       });
     }
@@ -58,7 +58,7 @@ export default function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `hsla(145,100%,50%,${0.06 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `hsla(187,100%,50%,${0.06 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

@@ -45,7 +45,7 @@ export default function InfiniteRug() {
   const getGlowClass = () => {
     if (rugged) return "";
     if (cashedOut) return "neon-glow-green";
-    if (multiplier > 2) return "neon-glow-purple";
+    if (multiplier > 2) return "neon-glow-cyan";
     return "";
   };
 
@@ -79,7 +79,7 @@ export default function InfiniteRug() {
               {rugged ? "💀 Rugged" : cashedOut ? "💰 Cashed Out" : playing ? "🔴 Live" : "Multiplier"}
             </p>
             <p className={`relative z-10 font-mono text-8xl font-black tracking-tight transition-all duration-300 ${getMultColor()} ${
-              !rugged && !cashedOut && playing && multiplier > 2 ? "neon-text-purple" : ""
+              !rugged && !cashedOut && playing && multiplier > 2 ? "neon-text-cyan" : ""
             } ${cashedOut ? "neon-text-green" : ""}`}>
               {multiplier.toFixed(2)}x
             </p>
@@ -141,12 +141,12 @@ export default function InfiniteRug() {
             </div>
 
             {playing && (
-              <div className="border border-secondary/30 bg-secondary/5 p-5 neon-glow-purple animate-slide-up">
+              <div className="border border-secondary/30 bg-secondary/5 p-5 neon-glow-cyan animate-slide-up">
                 <div className="flex items-center gap-2 mb-1">
                   <TrendingUp className="h-4 w-4 text-secondary" />
                   <p className="font-mono text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">Potential Win</p>
                 </div>
-                <p className="font-mono text-3xl font-black text-secondary neon-text-purple">
+                <p className="font-mono text-3xl font-black text-secondary neon-text-cyan">
                   {(parseFloat(betAmount) * multiplier).toFixed(2)} SOL
                 </p>
               </div>
@@ -154,7 +154,7 @@ export default function InfiniteRug() {
 
             {!playing && !rugged && !cashedOut ? (
               <button onClick={handleStart}
-                className="flex w-full items-center justify-center gap-3 bg-secondary py-4 text-sm font-semibold tracking-widest text-secondary-foreground transition-all hover:brightness-110 active:scale-[0.97] neon-glow-purple uppercase"
+                className="flex w-full items-center justify-center gap-3 bg-secondary py-4 text-sm font-semibold tracking-widest text-secondary-foreground transition-all hover:brightness-110 active:scale-[0.97] neon-glow-cyan uppercase"
                 style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
               >
                 <Zap className="h-5 w-5" /> Start Game
@@ -168,7 +168,7 @@ export default function InfiniteRug() {
               </button>
             ) : (
               <button onClick={handleReset}
-                className="flex w-full items-center justify-center gap-3 bg-secondary py-4 text-sm font-semibold tracking-widest text-secondary-foreground transition-all hover:brightness-110 active:scale-[0.97] neon-glow-purple uppercase"
+                className="flex w-full items-center justify-center gap-3 bg-secondary py-4 text-sm font-semibold tracking-widest text-secondary-foreground transition-all hover:brightness-110 active:scale-[0.97] neon-glow-cyan uppercase"
                 style={{ clipPath: 'polygon(0 0, 100% 0, 97% 100%, 3% 100%)' }}
               >
                 <RotateCcw className="h-5 w-5" /> Play Again

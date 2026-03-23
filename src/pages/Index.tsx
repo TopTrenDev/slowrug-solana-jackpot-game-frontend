@@ -6,8 +6,8 @@ import rugImg from "@/assets/infinite-rug-game.jpg";
 
 const stats = [
   { icon: DollarSign, value: "$12,847", label: "Amount Wagered", glow: "neon-glow-green", color: "text-primary" },
-  { icon: Hash, value: "1,293", label: "Bets Placed", glow: "neon-glow-purple", color: "text-secondary" },
-  { icon: Trophy, value: "$8,412", label: "Total Wins", glow: "neon-glow-green", color: "text-primary" },
+  { icon: Hash, value: "1,293", label: "Bets Placed", glow: "neon-glow-cyan", color: "text-secondary" },
+  { icon: Trophy, value: "$8,412", label: "Total Wins", glow: "neon-glow-gold", color: "text-accent" },
 ];
 
 const games = [
@@ -26,7 +26,7 @@ const games = [
     path: "/infinite-rug",
     icon: Infinity,
     img: rugImg,
-    borderClass: "neon-border-purple",
+    borderClass: "neon-border-cyan",
     tagColor: "bg-secondary/15 text-secondary",
   },
 ];
@@ -56,7 +56,7 @@ export default function Index() {
           <h1 className="font-display text-7xl text-foreground lg:text-[120px] leading-[0.9]">
             PLAY.<br />
             <span className="text-primary neon-text-green">WIN.</span><br />
-            <span className="text-secondary neon-text-purple">REPEAT.</span>
+            <span className="text-secondary neon-text-cyan">REPEAT.</span>
           </h1>
           <p className="mt-6 max-w-md text-base text-foreground/50 leading-relaxed">
             Solana-powered jackpot games with instant payouts, verifiable randomness, and zero middlemen.

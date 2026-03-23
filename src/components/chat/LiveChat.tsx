@@ -13,9 +13,9 @@ interface ChatMessage {
 const COLORS = [
   "text-primary",
   "text-secondary",
-  "text-[hsl(320,90%,60%)]",
-  "text-[hsl(185,100%,50%)]",
-  "text-[hsl(45,100%,60%)]",
+  "text-accent",
+  "text-neon-cyan",
+  "text-chrome",
 ];
 
 const MOCK_MESSAGES: ChatMessage[] = [
@@ -47,7 +47,7 @@ export default function LiveChat() {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center bg-secondary shadow-lg transition-all hover:scale-105 active:scale-95 neon-glow-purple"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center bg-secondary shadow-lg transition-all hover:scale-105 active:scale-95 neon-glow-cyan"
         style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%)' }}
       >
         <MessageCircle className="h-6 w-6 text-secondary-foreground" />
@@ -59,7 +59,7 @@ export default function LiveChat() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex h-[480px] w-[340px] flex-col overflow-hidden border border-secondary/30 bg-sidebar/95 backdrop-blur-xl neon-glow-purple animate-slide-up">
+    <div className="fixed bottom-6 right-6 z-50 flex h-[480px] w-[340px] flex-col overflow-hidden border border-secondary/30 bg-sidebar/95 backdrop-blur-xl neon-glow-cyan animate-slide-up">
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />

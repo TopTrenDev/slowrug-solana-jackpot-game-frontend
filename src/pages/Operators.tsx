@@ -2,8 +2,8 @@ import { Users, TrendingUp, Shield, ArrowRight, Coins, Lock } from "lucide-react
 
 const stats = [
   { label: "Active Operators", value: "24", icon: Users, color: "text-primary", glow: "neon-glow-green" },
-  { label: "Total Value Locked", value: "$142K", icon: Lock, color: "text-secondary", glow: "neon-glow-purple" },
-  { label: "Games Secured", value: "3,891", icon: Shield, color: "text-primary", glow: "neon-glow-green" },
+  { label: "Total Value Locked", value: "$142K", icon: Lock, color: "text-accent", glow: "neon-glow-gold" },
+  { label: "Games Secured", value: "3,891", icon: Shield, color: "text-secondary", glow: "neon-glow-cyan" },
 ];
 
 const operators = [
@@ -39,7 +39,7 @@ export default function Operators() {
         ))}
       </div>
 
-      <div className="mb-8 border border-secondary/30 bg-gradient-to-r from-secondary/8 to-transparent p-8 neon-glow-purple">
+      <div className="mb-8 border border-accent/30 bg-gradient-to-r from-accent/8 to-transparent p-8 neon-glow-gold">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
             <h2 className="font-display text-3xl text-foreground">BECOME AN OPERATOR</h2>
@@ -48,7 +48,7 @@ export default function Operators() {
             </p>
           </div>
           <button
-            className="inline-flex items-center gap-2 bg-secondary px-8 py-3.5 text-sm font-semibold tracking-widest text-secondary-foreground transition-all hover:brightness-110 active:scale-[0.97] shrink-0 uppercase"
+            className="inline-flex items-center gap-2 bg-accent px-8 py-3.5 text-sm font-semibold tracking-widest text-accent-foreground transition-all hover:brightness-110 active:scale-[0.97] shrink-0 uppercase"
             style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }}
           >
             Stake Now <ArrowRight className="h-4 w-4" />
