@@ -141,7 +141,7 @@ export default function InfiniteRug() {
             </div>
 
             {playing && (
-              <div className="border border-secondary/30 bg-secondary/5 p-5 neon-glow-purple animate-slide-up">
+              <div className="border border-secondary/30 bg-secondary/5 p-5 neon-glow-cyan animate-slide-up">
                 <div className="flex items-center gap-2 mb-1">
                   <TrendingUp className="h-4 w-4 text-secondary" />
                   <p className="font-mono text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">Potential Win</p>
