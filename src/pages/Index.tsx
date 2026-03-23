@@ -56,7 +56,7 @@ export default function Index() {
           <h1 className="font-display text-7xl text-foreground lg:text-[120px] leading-[0.9]">
             PLAY.<br />
             <span className="text-primary neon-text-green">WIN.</span><br />
-            <span className="text-secondary neon-text-purple">REPEAT.</span>
+            <span className="text-secondary neon-text-cyan">REPEAT.</span>
           </h1>
           <p className="mt-6 max-w-md text-base text-foreground/50 leading-relaxed">
             Solana-powered jackpot games with instant payouts, verifiable randomness, and zero middlemen.

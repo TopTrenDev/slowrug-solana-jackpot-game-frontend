@@ -48,7 +48,7 @@ export default function Operators() {
             </p>
           </div>
           <button
-            className="inline-flex items-center gap-2 bg-secondary px-8 py-3.5 text-sm font-semibold tracking-widest text-secondary-foreground transition-all hover:brightness-110 active:scale-[0.97] shrink-0 uppercase"
+            className="inline-flex items-center gap-2 bg-accent px-8 py-3.5 text-sm font-semibold tracking-widest text-accent-foreground transition-all hover:brightness-110 active:scale-[0.97] shrink-0 uppercase"
             style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }}
           >
             Stake Now <ArrowRight className="h-4 w-4" />

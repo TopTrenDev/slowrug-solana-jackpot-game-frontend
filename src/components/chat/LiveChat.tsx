@@ -59,7 +59,7 @@ export default function LiveChat() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex h-[480px] w-[340px] flex-col overflow-hidden border border-secondary/30 bg-sidebar/95 backdrop-blur-xl neon-glow-purple animate-slide-up">
+    <div className="fixed bottom-6 right-6 z-50 flex h-[480px] w-[340px] flex-col overflow-hidden border border-secondary/30 bg-sidebar/95 backdrop-blur-xl neon-glow-cyan animate-slide-up">
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />

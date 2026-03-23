@@ -58,7 +58,7 @@ export default function ParticleField() {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `hsla(145,100%,50%,${0.06 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `hsla(187,100%,50%,${0.06 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
