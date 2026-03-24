@@ -16,6 +16,7 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const [muted, setMuted] = useState(false);
   const location = useLocation();
+  const { connected, shortAddress, connect, disconnect } = useWallet();
 
   return (
     <aside
