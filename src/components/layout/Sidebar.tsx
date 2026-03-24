@@ -1,7 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Gamepad2, Building2, Infinity, MessageCircle, Wallet, Volume2, VolumeX, ChevronLeft, ChevronRight, Home } from "lucide-react";
+import { Gamepad2, Building2, Infinity, MessageCircle, Wallet, Volume2, VolumeX, ChevronLeft, ChevronRight, Home, LogOut } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useWallet } from "@/hooks/useWallet";
 import logoImg from "@/assets/slowrug-logo.png";
 
 const navItems = [
