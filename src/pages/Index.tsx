@@ -48,23 +48,23 @@ export default function Index() {
           <img src={heroBanner} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
         </div>
-        <div className="relative z-10 px-8 pb-20 pt-24 lg:px-12">
+        <div className="relative z-10 px-4 pb-16 pt-16 sm:px-8 lg:px-12 sm:pb-20 sm:pt-24">
           <div className="flex items-center gap-2 mb-5">
             <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
             <span className="font-mono text-xs tracking-widest text-primary uppercase">Provably Fair • On-Chain</span>
           </div>
-          <h1 className="font-display text-7xl text-foreground lg:text-[120px] leading-[0.9]">
+          <h1 className="font-display text-5xl sm:text-7xl text-foreground lg:text-[120px] leading-[0.9]">
             PLAY.<br />
             <span className="text-primary neon-text-green">WIN.</span><br />
             <span className="text-secondary neon-text-cyan">REPEAT.</span>
           </h1>
-          <p className="mt-6 max-w-md text-base text-foreground/50 leading-relaxed">
+          <p className="mt-4 sm:mt-6 max-w-md text-sm sm:text-base text-foreground/50 leading-relaxed">
             Solana-powered jackpot games with instant payouts, verifiable randomness, and zero middlemen.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
             <Link
               to="/tower"
-              className="group inline-flex items-center gap-2 bg-primary px-7 py-3 text-sm font-semibold tracking-wider text-primary-foreground transition-all hover:brightness-110 active:scale-[0.97] uppercase"
+              className="group inline-flex items-center justify-center gap-2 bg-primary px-7 py-3 text-sm font-semibold tracking-wider text-primary-foreground transition-all hover:brightness-110 active:scale-[0.97] uppercase"
               style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }}
             >
               <Zap className="h-4 w-4" />
@@ -73,7 +73,7 @@ export default function Index() {
             </Link>
             <Link
               to="/operators"
-              className="inline-flex items-center gap-2 border border-secondary/40 bg-secondary/10 px-7 py-3 text-sm font-semibold tracking-wider text-secondary transition-all hover:bg-secondary/20 active:scale-[0.97] uppercase"
+              className="inline-flex items-center justify-center gap-2 border border-secondary/40 bg-secondary/10 px-7 py-3 text-sm font-semibold tracking-wider text-secondary transition-all hover:bg-secondary/20 active:scale-[0.97] uppercase"
               style={{ clipPath: 'polygon(5% 0, 100% 0, 100% 100%, 0% 100%)' }}
             >
               Become Operator
@@ -82,14 +82,14 @@ export default function Index() {
         </div>
       </section>
 
-      <div className="px-8 lg:px-12">
+      <div className="px-4 sm:px-8 lg:px-12">
         {/* Stats */}
-        <section className="relative -mt-4 mb-12">
-          <div className="grid gap-3 sm:grid-cols-3">
+        <section className="relative -mt-4 mb-8 sm:mb-12">
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-3">
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`border border-border bg-card/80 backdrop-blur-sm p-5 transition-all duration-300 hover:translate-y-[-2px] ${s.glow} animate-slide-up`}
+                className={`border border-border bg-card/80 backdrop-blur-sm p-4 sm:p-5 transition-all duration-300 hover:translate-y-[-2px] ${s.glow} animate-slide-up`}
                 style={{ animationDelay: `${i * 80}ms` }}
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -98,7 +98,7 @@ export default function Index() {
                   </div>
                   <TrendingUp className="h-3.5 w-3.5 text-primary" />
                 </div>
-                <p className="font-mono text-2xl font-bold tracking-tight text-foreground">{s.value}</p>
+                <p className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-foreground">{s.value}</p>
                 <p className="mt-1 text-xs text-muted-foreground uppercase tracking-wider">{s.label}</p>
               </div>
             ))}
@@ -106,30 +106,30 @@ export default function Index() {
         </section>
 
         {/* Games */}
-        <section className="mb-12">
+        <section className="mb-8 sm:mb-12">
           <div className="flex items-center gap-3 mb-6">
             <Gamepad2 className="h-4 w-4 text-primary" />
             <h2 className="font-display text-2xl text-muted-foreground">GAMES</h2>
             <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
             {games.map((g) => (
               <Link
                 key={g.path}
                 to={g.path}
                 className={`group relative overflow-hidden border bg-card transition-all duration-500 hover:translate-y-[-2px] ${g.borderClass}`}
               >
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-36 sm:h-44 overflow-hidden">
                   <img src={g.img} alt={g.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                   <span className={`absolute top-3 left-3 px-3 py-1 font-mono text-[10px] font-bold tracking-widest ${g.tagColor}`}>
                     LIVE
                   </span>
                 </div>
-                <div className="p-5">
+                <div className="p-4 sm:p-5">
                   <div className="flex items-center gap-2 mb-2">
                     <g.icon className="h-4 w-4 text-foreground" />
-                    <h3 className="font-display text-2xl text-foreground">{g.title}</h3>
+                    <h3 className="font-display text-xl sm:text-2xl text-foreground">{g.title}</h3>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{g.desc}</p>
                   <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-primary transition-all group-hover:gap-3 uppercase">
@@ -141,14 +141,34 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Recent Players */}
-        <section className="mb-12">
+        {/* Recent Players - Mobile: cards, Desktop: table */}
+        <section className="mb-8 sm:mb-12">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
             <h2 className="font-display text-2xl text-muted-foreground">RECENT PLAYS</h2>
             <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
           </div>
-          <div className="overflow-hidden border border-border bg-card/60 backdrop-blur-sm">
+
+          {/* Mobile cards */}
+          <div className="space-y-2 sm:hidden">
+            {recentPlayers.map((p, i) => (
+              <div key={i} className="border border-border bg-card/60 backdrop-blur-sm p-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className={`px-2 py-0.5 font-mono text-[10px] font-bold ${p.game === "Tower" ? "bg-primary/10 text-primary" : "bg-secondary/10 text-secondary"}`}>
+                    {p.game}
+                  </span>
+                  <span className="font-mono text-xs text-muted-foreground">{p.wallet}</span>
+                </div>
+                <div className="text-right">
+                  <p className="font-mono text-xs text-foreground">{p.bet}</p>
+                  <p className={`font-mono text-xs font-semibold ${p.win ? "text-primary" : "text-destructive"}`}>{p.payout}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop table */}
+          <div className="hidden sm:block overflow-hidden border border-border bg-card/60 backdrop-blur-sm">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border">
@@ -167,9 +187,7 @@ export default function Index() {
                     </td>
                     <td className="px-5 py-3 font-mono text-xs text-muted-foreground">{p.wallet}</td>
                     <td className="px-5 py-3 font-mono text-xs text-foreground">{p.bet}</td>
-                    <td className={`px-5 py-3 font-mono text-xs font-semibold ${p.win ? "text-primary" : "text-destructive"}`}>
-                      {p.payout}
-                    </td>
+                    <td className={`px-5 py-3 font-mono text-xs font-semibold ${p.win ? "text-primary" : "text-destructive"}`}>{p.payout}</td>
                     <td className="px-5 py-3">
                       <a href="#" className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-primary">
                         <ExternalLink className="h-3 w-3" />

@@ -1,7 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Gamepad2, Building2, Infinity, MessageCircle, Wallet, Volume2, VolumeX, ChevronLeft, ChevronRight, Home } from "lucide-react";
+import { Gamepad2, Building2, Infinity, MessageCircle, Wallet, Volume2, VolumeX, ChevronLeft, ChevronRight, Home, LogOut } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useWallet } from "@/hooks/useWallet";
 import logoImg from "@/assets/slowrug-logo.png";
 
 const navItems = [
@@ -15,6 +16,7 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const [muted, setMuted] = useState(false);
   const location = useLocation();
+  const { connected, shortAddress, connect, disconnect } = useWallet();
 
   return (
     <aside
@@ -38,16 +40,38 @@ export default function Sidebar() {
 
       {/* Wallet Button */}
       <div className="px-3 py-4">
-        <button className={cn(
-          "flex w-full items-center justify-center gap-2 py-2.5 text-sm font-semibold tracking-wider transition-all active:scale-[0.97] uppercase",
-          "bg-primary text-primary-foreground hover:brightness-110",
-          collapsed && "px-0"
+        {connected ? (
+          <div className="flex flex-col gap-2">
+            <div className={cn(
+              "flex w-full items-center justify-center gap-2 py-2.5 text-sm font-mono border border-primary/30 bg-primary/10 text-primary",
+              collapsed && "px-0"
+            )}>
+              <Wallet className="h-4 w-4 shrink-0" />
+              {!collapsed && shortAddress}
+            </div>
+            {!collapsed && (
+              <button
+                onClick={disconnect}
+                className="flex w-full items-center justify-center gap-2 py-2 text-xs font-semibold text-muted-foreground hover:text-destructive transition-colors uppercase tracking-wider"
+              >
+                <LogOut className="h-3.5 w-3.5" /> Disconnect
+              </button>
+            )}
+          </div>
+        ) : (
+          <button
+            onClick={connect}
+            className={cn(
+              "flex w-full items-center justify-center gap-2 py-2.5 text-sm font-semibold tracking-wider transition-all active:scale-[0.97] uppercase",
+              "bg-primary text-primary-foreground hover:brightness-110",
+              collapsed && "px-0"
+            )}
+            style={{ clipPath: collapsed ? undefined : 'polygon(0 0, 100% 0, 96% 100%, 0% 100%)' }}
+          >
+            <Wallet className="h-4 w-4 shrink-0" />
+            {!collapsed && "Connect Wallet"}
+          </button>
         )}
-        style={{ clipPath: collapsed ? undefined : 'polygon(0 0, 100% 0, 96% 100%, 0% 100%)' }}
-        >
-          <Wallet className="h-4 w-4 shrink-0" />
-          {!collapsed && "Connect Wallet"}
-        </button>
       </div>
 
       {/* Nav Section */}

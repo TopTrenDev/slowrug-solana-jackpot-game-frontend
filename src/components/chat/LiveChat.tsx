@@ -47,7 +47,7 @@ export default function LiveChat() {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center bg-secondary shadow-lg transition-all hover:scale-105 active:scale-95 neon-glow-cyan"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center bg-secondary shadow-lg transition-all hover:scale-105 active:scale-95 neon-glow-cyan"
         style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%)' }}
       >
         <MessageCircle className="h-6 w-6 text-secondary-foreground" />
@@ -59,7 +59,7 @@ export default function LiveChat() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex h-[480px] w-[340px] flex-col overflow-hidden border border-secondary/30 bg-sidebar/95 backdrop-blur-xl neon-glow-cyan animate-slide-up">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-[70vh] max-h-[480px] w-[calc(100vw-2rem)] max-w-[340px] flex-col overflow-hidden border border-secondary/30 bg-sidebar/95 backdrop-blur-xl neon-glow-cyan animate-slide-up">
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />

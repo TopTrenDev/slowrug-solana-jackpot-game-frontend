@@ -51,22 +51,23 @@ export default function InfiniteRug() {
 
   return (
     <div className="min-h-screen">
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-40 sm:h-48 overflow-hidden">
         <img src={rugImg} alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background" />
-        <div className="absolute bottom-0 left-0 px-8 pb-6 lg:px-12">
+        <div className="absolute bottom-0 left-0 px-4 pb-4 sm:px-8 sm:pb-6 lg:px-12">
           <div className="flex items-center gap-2 mb-2">
             <div className="h-2 w-2 rounded-full bg-secondary animate-pulse" />
             <span className="font-mono text-[10px] tracking-widest text-secondary uppercase">Live Game</span>
           </div>
-          <h1 className="font-display text-5xl text-foreground lg:text-6xl">INFINITE RUG</h1>
-          <p className="mt-1 text-sm text-muted-foreground">Watch the multiplier rise. Pull out before the rug.</p>
+          <h1 className="font-display text-4xl sm:text-5xl text-foreground lg:text-6xl">INFINITE RUG</h1>
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">Watch the multiplier rise. Pull out before the rug.</p>
         </div>
       </div>
 
-      <div className="px-8 py-8 lg:px-12">
-        <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
-          <div className={`relative flex flex-col items-center justify-center border bg-card/60 backdrop-blur-sm p-16 transition-all duration-500 scanlines overflow-hidden ${
+      <div className="px-4 py-6 sm:px-8 sm:py-8 lg:px-12">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-[1fr_360px]">
+          {/* Multiplier display */}
+          <div className={`relative flex flex-col items-center justify-center border bg-card/60 backdrop-blur-sm p-10 sm:p-16 transition-all duration-500 scanlines overflow-hidden ${
             rugged ? "border-destructive/30" : cashedOut ? "border-primary/30" : "border-border"
           } ${getGlowClass()}`}>
             {playing && (
@@ -78,20 +79,20 @@ export default function InfiniteRug() {
             <p className="relative z-10 font-mono text-xs font-semibold tracking-widest text-muted-foreground mb-4 uppercase">
               {rugged ? "💀 Rugged" : cashedOut ? "💰 Cashed Out" : playing ? "🔴 Live" : "Multiplier"}
             </p>
-            <p className={`relative z-10 font-mono text-8xl font-black tracking-tight transition-all duration-300 ${getMultColor()} ${
+            <p className={`relative z-10 font-mono text-6xl sm:text-8xl font-black tracking-tight transition-all duration-300 ${getMultColor()} ${
               !rugged && !cashedOut && playing && multiplier > 2 ? "neon-text-cyan" : ""
             } ${cashedOut ? "neon-text-green" : ""}`}>
               {multiplier.toFixed(2)}x
             </p>
 
             {(rugged || cashedOut) && (
-              <p className="relative z-10 mt-4 font-mono text-lg text-muted-foreground animate-fade-blur">
+              <p className="relative z-10 mt-4 font-mono text-base sm:text-lg text-muted-foreground animate-fade-blur">
                 {cashedOut ? `Won ${(parseFloat(betAmount) * multiplier).toFixed(2)} SOL` : "Better luck next time"}
               </p>
             )}
 
             {playing && (
-              <div className="relative z-10 mt-8 w-64">
+              <div className="relative z-10 mt-6 sm:mt-8 w-full max-w-[256px]">
                 <div className="h-1 w-full overflow-hidden bg-muted">
                   <div
                     className="h-full transition-all duration-100"
@@ -108,8 +109,8 @@ export default function InfiniteRug() {
               </div>
             )}
 
-            <div className="absolute bottom-4 left-4 right-4 flex gap-2 overflow-hidden">
-              {history.slice(0, 8).map((h, i) => (
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex gap-1.5 sm:gap-2 overflow-hidden flex-wrap">
+              {history.slice(0, 6).map((h, i) => (
                 <span key={i} className={`px-2 py-1 font-mono text-[10px] font-bold ${h.win ? "bg-primary/10 text-primary" : "bg-destructive/10 text-destructive"}`}>
                   {h.mult.toFixed(2)}x
                 </span>
@@ -117,8 +118,9 @@ export default function InfiniteRug() {
             </div>
           </div>
 
+          {/* Controls */}
           <div className="space-y-4">
-            <div className="border border-border bg-card/60 backdrop-blur-sm p-5">
+            <div className="border border-border bg-card/60 backdrop-blur-sm p-4 sm:p-5">
               <label className="mb-3 block font-mono text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
                 Bet Amount (SOL)
               </label>
@@ -141,12 +143,12 @@ export default function InfiniteRug() {
             </div>
 
             {playing && (
-              <div className="border border-secondary/30 bg-secondary/5 p-5 neon-glow-cyan animate-slide-up">
+              <div className="border border-secondary/30 bg-secondary/5 p-4 sm:p-5 neon-glow-cyan animate-slide-up">
                 <div className="flex items-center gap-2 mb-1">
                   <TrendingUp className="h-4 w-4 text-secondary" />
                   <p className="font-mono text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">Potential Win</p>
                 </div>
-                <p className="font-mono text-3xl font-black text-secondary neon-text-cyan">
+                <p className="font-mono text-2xl sm:text-3xl font-black text-secondary neon-text-cyan">
                   {(parseFloat(betAmount) * multiplier).toFixed(2)} SOL
                 </p>
               </div>
