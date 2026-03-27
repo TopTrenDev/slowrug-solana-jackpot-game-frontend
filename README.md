@@ -103,23 +103,3 @@ npm run preview
 ```
 
 Deploy the `dist/` folder to any static host (CDN, Vercel, Netlify, S3, etc.). Set your host’s SPA fallback to `index.html` so client-side routes work.
-
----
-
-## 🤝 Contributing
-
-1. 🍴 Fork / branch  
-2. ✅ `npm run lint` and `npm run test`  
-3. 📤 Open a PR with a clear description
-
----
-
-## 📄 License
-
-Private project (`"private": true` in `package.json`). Add a `LICENSE` file when you’re ready to publish.
-
----
-
-<p align="center">
-  <b>Built with ⚡ for the SlowRug community</b>
-</p>
