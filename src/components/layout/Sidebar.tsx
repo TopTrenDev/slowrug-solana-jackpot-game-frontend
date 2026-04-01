@@ -139,19 +139,35 @@ export default function Sidebar() {
         </div>
       )}
 
-      {/* Bottom Controls */}
-      <div className="flex items-center justify-between border-t border-border px-3 py-3">
+      <div
+        className={cn(
+          "flex items-center border-t border-border py-3",
+          collapsed ? "justify-center gap-1 px-1" : "justify-between px-3"
+        )}
+      >
         <button
+          type="button"
           onClick={() => setMuted(!muted)}
-          className="p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          className={cn(
+            "inline-flex shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
+            collapsed ? "size-7" : "size-9"
+          )}
         >
-          {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+          {muted ? <VolumeX className="h-4 w-4 shrink-0" /> : <Volume2 className="h-4 w-4 shrink-0" />}
         </button>
         <button
+          type="button"
           onClick={() => setCollapsed(!collapsed)}
-          className="p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          className={cn(
+            "inline-flex shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
+            collapsed ? "size-7" : "size-9"
+          )}
         >
-          {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+          {collapsed ? (
+            <ChevronRight className="h-4 w-4 shrink-0" />
+          ) : (
+            <ChevronLeft className="h-4 w-4 shrink-0" />
+          )}
         </button>
       </div>
     </aside>
