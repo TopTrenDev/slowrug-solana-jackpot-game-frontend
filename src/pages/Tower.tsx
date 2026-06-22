@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUp, Zap, Trophy, RotateCcw } from "lucide-react";
+import { ArrowUp, Zap, RotateCcw } from "lucide-react";
 import towerImg from "@/assets/tower-game.jpg";
 
 const LEVELS = 10;
