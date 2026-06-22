@@ -13,9 +13,30 @@ A neon-soaked **Solana jackpot** web experience: cyberpunk UI, particle effects,
 
 - 🎨 **Cyberpunk design system** — neon lime, cyan, gold, and chrome; glows, scanlines, gradient borders
 - 🗺️ **Multi-page routing** — Home, Tower, Infinite Rug, Operators hub (`react-router-dom`)
-- 🧩 **Radix + shadcn-style primitives** — accessible components with **Tailwind CSS**
-- ⚡ **TanStack Query** ready for data fetching when you plug in APIs
-- 🧪 **Vitest** for unit tests and **Playwright** scaffold for E2E (`e2e/`)
+- 🎨 **Tailwind CSS** — custom UI with semantic theme tokens and **lucide-react** icons
+- 🧪 **Vitest** for unit tests
+
+---
+
+## 📸 Screenshots
+
+### Home
+
+![SlowRug home — hero, stats, and game cards](./public/1.png)
+
+![SlowRug home — live chat](./public/2.png)
+
+### The Tower
+
+![The Tower — climb levels and cash out before collapse](./public/3.png)
+
+### Operators Hub
+
+![Operators Hub — staking protocol and leaderboard](./public/4.png)
+
+### Infinite Rug
+
+![Infinite Rug — crash-style multiplier game](./public/5.png)
 
 ---
 
@@ -44,7 +65,6 @@ Open **http://localhost:8080** — the dev server is configured for that port.
 | `npm run lint` | Run ESLint |
 | `npm run test` | Run Vitest once |
 | `npm run test:watch` | Vitest in watch mode |
-| `npx playwright test` | E2E tests (add specs under `e2e/`) |
 
 ---
 
@@ -65,10 +85,8 @@ Open **http://localhost:8080** — the dev server is configured for that port.
 - **React 18** + **TypeScript**
 - **Vite 5** + `@vitejs/plugin-react-swc`
 - **Tailwind CSS** + **tailwindcss-animate**
-- **Radix UI** primitives, **lucide-react** icons
-- **React Hook Form** + **Zod** (+ resolvers)
-- **TanStack Query**
-- **Vitest** + Testing Library · **Playwright**
+- **lucide-react** icons
+- **Vitest**
 
 ---
 
@@ -76,15 +94,14 @@ Open **http://localhost:8080** — the dev server is configured for that port.
 
 ```
 src/
-├── components/     # UI, layout, effects
+├── components/     # Layout, chat, effects
 ├── pages/          # Route screens
-├── hooks/          # Shared hooks
+├── hooks/          # Shared hooks (e.g. wallet)
 ├── lib/            # Utilities
 ├── assets/         # Images & static art
-├── App.tsx         # Router + providers
+├── App.tsx         # Router
 └── main.tsx        # Entry
-public/             # Favicon & public assets
-e2e/                # Playwright tests (add `*.spec.ts` here)
+public/             # Favicon, screenshots & public assets
 ```
 
 ---
